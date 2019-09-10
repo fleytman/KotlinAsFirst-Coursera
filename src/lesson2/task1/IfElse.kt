@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson2.task1
 
 import lesson1.task1.discriminant
@@ -120,4 +121,15 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Найти длину пересечения отрезков AB и CD.
  * Если пересечения нет, вернуть -1.
  */
-fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int = TODO()
+fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
+    if (a > b || c > d) return -1
+    else if (c in a..b) {
+        return if (d in a..b) d - c
+        else b - c
+    }
+    else if (a in c..d) {
+        return if (b in c..d) b - a
+        else d - a
+    }
+    return -1
+}
